@@ -1,7 +1,7 @@
 // src/app/api/lead/route.ts
 import { NextResponse } from "next/server";
 import { sendTelegram } from "@/lib/integrations/telegram";
-import { sendLeadToEmail } from "@/lib/email";
+import { sendLeadToEmail } from "@/lib/integrations/email";
 
 export const dynamic = "force-dynamic";
 
