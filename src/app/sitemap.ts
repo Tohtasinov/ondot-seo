@@ -5,7 +5,7 @@ import fs from "fs";
 import path from "path";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://www.example.com";
+  const base = "https://ondotappliance.com";
   const now = new Date().toISOString();
   const items: MetadataRoute.Sitemap = [
     { url: `${base}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },

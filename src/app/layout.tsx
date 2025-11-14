@@ -9,7 +9,7 @@ import { BASE_URL } from "@/lib/seo/meta";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.example.com"),
   title: { default: "On-Dot Appliance Repair", template: "%s | On-Dot Appliance Repair" },
-  description: "Same day On-Dot Appliance Repair. Factory trained, licensed and insured.",
+  description: "On-Dot Appliance Repair. Factory trained, licensed and insured.",
   icons: { icon: "/icons/logo.jpeg", shortcut: "/icons/logo.jpeg", apple: "/icons/logo.jpeg" },
   manifest: "/manifest.webmanifest",
 };

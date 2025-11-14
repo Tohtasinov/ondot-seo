@@ -14,7 +14,7 @@ export default function ServiceSearch({ items }: { items: Item[] }) {
     washer: "/images/washer-repair.jpg",
     refrigerator: "/images/fridge-repair.jpg",
     oven: "/images/oven-repair.jpg",
-    microwave: "/images/microwave-repair.jpg",
+    stove: "/images/stove.jpg",
   };
 
   const filtered = useMemo(() => {
@@ -72,7 +72,7 @@ export default function ServiceSearch({ items }: { items: Item[] }) {
                 className="object-cover transition group-hover:scale-[1.03]"
               />
               <div className="absolute left-3 top-3 rounded-full bg-white/85 px-3 py-1 text-xs">
-                Same day
+                On-Dot Appliance Repair
               </div>
             </div>
 
