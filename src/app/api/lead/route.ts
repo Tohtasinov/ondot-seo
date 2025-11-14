@@ -1,6 +1,7 @@
 // src/app/api/lead/route.ts
-import { sendTelegram } from "@/lib/integrations/telegram";
 import { NextResponse } from "next/server";
+import { sendTelegram } from "@/lib/integrations/telegram";
+import { sendLeadToEmail } from "@/lib/integrations/email";
 
 export const dynamic = "force-dynamic";
 
@@ -29,10 +30,18 @@ export async function POST(req: Request) {
 
     const text = lines.join("\n");
 
+    // 1. Отправка в Telegram
     await sendTelegram(text);
 
-    // если у тебя есть отправка email, она может идти здесь
-    // await sendEmail(body);
+    // 2. Отправка на Email
+    await sendLeadToEmail({
+      name,
+      phone,
+      city,
+      service,
+      note: comment,
+      source,
+    });
 
     return NextResponse.json({ ok: true });
   } catch (err) {
