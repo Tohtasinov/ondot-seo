@@ -1,4 +1,57 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root { color-scheme: light; }
-html, body { min-height: 100dvh; }
+/* brand */
+:root{
+  --bg:#ffffff;
+  --bg-subtle:#f6f7fb;
+  --fg:#0a1224;                  /* почти чёрный сине-графит */
+  --muted:#6b7280;
+  --brand:#0b1b3a;               /* тёмно-синий основной */
+  --brand-2:#102a5e;             /* немного светлее для градиентов */
+  --accent:#22c7f0;              /* бирюзовый акцент */
+  --ok:#16a34a;
+  --ring:0 0% 0%;
+  --radius:14px;
+  --glass:rgba(255,255,255,0.7);
+}
+
+html,body{min-height:100dvh}
+body{background:var(--bg);color:var(--fg)}
+
+.prose{
+  --tw-prose-body:#0a1224;
+  --tw-prose-headings:#0a1224;
+  --tw-prose-links:#0b1b3a;
+}
+
+/* декоративный точечный паттерн */
+.bg-dot {
+  background-image:
+    radial-gradient(#dbe3ff 1px, transparent 1px),
+    radial-gradient(#eef2ff 1px, transparent 1px);
+  background-position: 0 0, 8px 8px;
+  background-size: 16px 16px;
+}
+
+/* тонкая подсветка бордеров */
+.card-border {
+  border:1px solid rgba(13, 27, 58, 0.1);
+  box-shadow: 0 8px 18px rgba(13,27,58,0.06);
+}
+
+/* анимированная подложка для hero */
+.hero-gradient {
+  background: radial-gradient(1200px 500px at 10% -10%, rgba(34,199,240,0.25), transparent 60%),
+              radial-gradient(800px 400px at 90% 0%, rgba(16,42,94,0.35), transparent 60%),
+              linear-gradient(180deg, rgba(11,27,58,0.92), rgba(11,27,58,0.92));
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee{
+  animation: marquee 20s linear infinite;
+}

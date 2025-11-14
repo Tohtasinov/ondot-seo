@@ -1,33 +1,55 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Container from "@/components/ui/Container";
+import Button from "@/components/ui/Button";
+import Link from "next/link";
+import { jsonLdOrganization, jsonLdWebsite } from "@/lib/seo/schema";
+import { BASE_URL } from "@/lib/seo/meta";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.example.com"),
-  title: { default: "Appliance Repair", template: "%s | Appliance Repair" },
-  description: "Same day appliance repair. Factory trained, licensed and insured."
+  title: { default: "On-Dot Appliance Repair", template: "%s | On-Dot Appliance Repair" },
+  description: "Same day On-Dot Appliance Repair. Factory trained, licensed and insured.",
+  icons: { icon: "/icons/logo.jpeg", shortcut: "/icons/logo.jpeg", apple: "/icons/logo.jpeg" },
+  manifest: "/manifest.webmanifest",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-white text-gray-900 antialiased">
-        <header className="border-b">
-          <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-            <a href="/" className="font-semibold">Appliance Repair</a>
-            <nav className="text-sm gap-4 hidden sm:flex">
-              <a href="/service/refrigerator">Refrigerator</a>
-              <a href="/service/washer">Washer</a>
-              <a href="/service/dryer">Dryer</a>
-              <a href="/locations">Locations</a>
+      <body className="min-h-dvh bg-[var(--bg)] text-[var(--fg)] antialiased">
+        <header className="sticky top-0 z-50 border-b border-black/10 bg-white/80 backdrop-blur">
+          <Container className="flex h-14 items-center justify-between">
+            <a href="/" className="font-semibold tracking-tight">On-Dot Appliance Repair</a>
+            <nav className="hidden gap-6 text-sm text-[var(--fg)]/80 sm:flex">
+              <a href="/service/refrigerator" className="hover:text-black">Refrigerator</a>
+              <a href="/service/washer" className="hover:text-black">Washer</a>
+              <a href="/service/dryer" className="hover:text-black">Dryer</a>
+              <a href="/service/oven" className="hover:text-black">Oven</a>
+              <a href="/service/stove" className="hover:text-black">Stove</a>
+              
             </nav>
-            <a href="#lead" className="rounded bg-black px-4 py-2 text-white">Book now</a>
-          </div>
+            <Link href="/services" className="hover:text-black">Services</Link>
+
+            <a href="#lead"><Button>Book now</Button></a>
+          </Container>
         </header>
+
         <main>{children}</main>
-        <footer className="mt-16 border-t">
-          <div className="mx-auto max-w-6xl px-4 py-8 text-sm text-gray-600">
-            © {new Date().getFullYear()} Appliance Repair
-          </div>
+         <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite(BASE_URL)) }}
+  />
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrganization(BASE_URL)) }}
+  />
+        
+
+        <footer className="mt-20 border-t border-black/10">
+          <Container>
+            <div className="py-10 text-sm text-[var(--muted)]">© {new Date().getFullYear()} On-Dot Appliance Repair</div>
+          </Container>
         </footer>
       </body>
     </html>

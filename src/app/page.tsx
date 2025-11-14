@@ -1,9 +1,42 @@
-export default function HomePage() {
+import Hero from "@/components/Hero-1";
+import BrandStrip from "@/components/BrandStrip";
+import Section from "@/components/ui/Section";
+import ServicesGrid from "@/components/ServicesGrid";
+import WhyUs from "@/components/WhyUs";
+import StatsStrip from "@/components/StatsStrip";
+import Steps from "@/components/Steps";
+import Container from "@/components/ui/Container";
+import LeadForm from "@/components/LeadForm";
+import Testimonials from "@/components/Testimonials";
+import CTA from "@/components/CTA";
+import ServiceAreas from "@/components/ServiceAreas";
+import CallButton from "@/components/CallButton";
+import CountyMaps from "@/components/CountyMaps";
+
+export default function HomePage(){
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10">
-      <h1 className="text-3xl font-semibold">Same day appliance repair</h1>
-      <p className="mt-3 text-gray-600">Trusted local technicians. Warranty on parts and labor.</p>
-      <a href="/locations" className="mt-6 inline-block rounded bg-black px-4 py-2 text-white">See service areas</a>
-    </div>
+    <>
+      <Hero />
+      <BrandStrip />
+       <Section id="lead" tone="default">
+        <Container>
+          <h2 className="text-2xl md:text-3xl font-semibold">Request service</h2>
+          <p className="mt-2 text-[var(--muted)]">Tell us about your issue and we will call you back.</p>
+          <div className="mt-6"><LeadForm /></div>
+        </Container>
+      </Section>
+      <Section tone="default"><ServicesGrid /></Section>
+      
+      <Section tone="subtle" className="pt-0"><WhyUs /></Section>
+      <StatsStrip />
+      <Section tone="default">
+        <Steps />
+      </Section>
+      <Testimonials />
+      <CTA />
+<CountyMaps />
+
+ <CallButton phone="+17088704053" />
+    </>
   );
 }
