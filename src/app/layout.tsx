@@ -12,7 +12,9 @@ export const metadata: Metadata = {
   description: "On-Dot Appliance Repair. Factory trained, licensed and insured.",
   icons: { icon: "/icons/logo.jpeg", shortcut: "/icons/logo.jpeg", apple: "/icons/logo.jpeg" },
   manifest: "/manifest.webmanifest",
+  
 };
+<meta name="google-site-verification" content="y3pqytaN263ay_kSwVg78ZgLjDxu8ri1AY74Y9otHh8" />
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
