@@ -1,13 +1,35 @@
-import Button from "@/components/ui/Button";
+import type { Metadata } from "next";
+import "./globals.css";
 import Container from "@/components/ui/Container";
-import { BASE_URL } from "@/lib/seo/meta";
-import { jsonLdOrganization, jsonLdWebsite } from "@/lib/seo/schema";
+import Button from "@/components/ui/Button";
 import Link from "next/link";
+import { jsonLdOrganization, jsonLdWebsite } from "@/lib/seo/schema";
+import { BASE_URL } from "@/lib/seo/meta";
 
+export const metadata: Metadata = {
+  metadataBase: new URL("https://ondotappliance.com"),
+  title: {
+    default: "On-Dot Appliance Repair",
+    template: "%s | On-Dot Appliance Repair",
+  },
+  description: "On-Dot Appliance Repair. Factory trained, licensed and insured.",
+  icons: {
+    icon: "/icons/logo.jpeg",
+    shortcut: "/icons/logo.jpeg",
+    apple: "/icons/logo.jpeg",
+  },
+  manifest: "/manifest.webmanifest",
+  verification: {
+    google: "y3pqytaN263ay_kSwVg78ZgLjDxu8ri1AY74Y9otHh8",
+  },
+};
+
+
+ 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
+       <head>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -20,10 +42,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-
       <body className="min-h-dvh bg-[var(--bg)] text-[var(--fg)] antialiased">
-
-        <noscript>
+          <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-PW7JL94B"
             height="0"
@@ -31,7 +51,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-
         <header className="sticky top-0 z-50 border-b border-black/10 bg-white/80 backdrop-blur">
           <Container className="flex h-14 items-center justify-between">
             <a href="/" className="font-semibold tracking-tight">
