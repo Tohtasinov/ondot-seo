@@ -1,33 +1,37 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
-import Link from "next/link";
-import { jsonLdOrganization, jsonLdWebsite } from "@/lib/seo/schema";
+import Container from "@/components/ui/Container";
 import { BASE_URL } from "@/lib/seo/meta";
+import { jsonLdOrganization, jsonLdWebsite } from "@/lib/seo/schema";
+import Link from "next/link";
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://ondotappliance.com"),
-  title: {
-    default: "On-Dot Appliance Repair",
-    template: "%s | On-Dot Appliance Repair",
-  },
-  description: "On-Dot Appliance Repair. Factory trained, licensed and insured.",
-  icons: {
-    icon: "/icons/logo.jpeg",
-    shortcut: "/icons/logo.jpeg",
-    apple: "/icons/logo.jpeg",
-  },
-  manifest: "/manifest.webmanifest",
-  verification: {
-    google: "y3pqytaN263ay_kSwVg78ZgLjDxu8ri1AY74Y9otHh8",
-  },
-};
- 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id=GTM-PW7JL94B'+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-PW7JL94B');
+            `
+          }}
+        />
+      </head>
+
       <body className="min-h-dvh bg-[var(--bg)] text-[var(--fg)] antialiased">
+
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-PW7JL94B"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+
         <header className="sticky top-0 z-50 border-b border-black/10 bg-white/80 backdrop-blur">
           <Container className="flex h-14 items-center justify-between">
             <a href="/" className="font-semibold tracking-tight">
