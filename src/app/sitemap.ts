@@ -19,12 +19,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.7
     },
-    {
-      url: `${base}/faq`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.5
-    }
   ];
 
   // Locations

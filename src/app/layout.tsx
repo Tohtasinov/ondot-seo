@@ -14,9 +14,12 @@ export const metadata: Metadata = {
   },
   description: "On-Dot Appliance Repair. Factory trained, licensed and insured.",
   icons: {
-    icon: "/icons/logo.jpeg",
-    shortcut: "/icons/logo.jpeg",
-    apple: "/icons/logo.jpeg",
+    icon: [
+      { url: "/logos/logo.jpeg", sizes: "192x192", type: "image/png" },
+      { url: "/logos/logo.jpeg", sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: "/logos/logo.jpeg",
+    apple: "/logos/logo.jpeg",
   },
   manifest: "/manifest.webmanifest",
   verification: {
