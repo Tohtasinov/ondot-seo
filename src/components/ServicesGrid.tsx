@@ -7,7 +7,7 @@ const items = [
   { slug:"washer", title:"Washer Repair", desc:"Will not spin, leaks, noises", img:"/images/washer-repair.jpg" },
   { slug:"dryer", title:"Dryer Repair", desc:"No heat, long cycles", img:"/images/dryer-repair.jpg" },
   { slug:"oven", title:"Oven Repair", desc:"Not heating, temperature issues", img:"/images/oven-repair.jpg" },
-  { slug:"stove", title:"Stove Repair", desc:"No heat, sparks, keypad not working", img:"/imagesappliance-repair-team-stockcake.jpg" },
+  { slug:"stove", title:"Stove Repair", desc:"No heat, sparks, keypad not working", img:"/images/appliance-repair-team-stockcake.jpg" },
 ];
 
 export default function ServicesGrid() {
