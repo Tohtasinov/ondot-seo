@@ -8,21 +8,29 @@ export const LOCATIONS = [
   { slug: "lancaster-17601", city: "Lancaster", state: "PA", zip: "17601" },
   { slug: "reading-19601", city: "Reading", state: "PA", zip: "19601" },
   { slug: "harrisburg-17101", city: "Harrisburg", state: "PA", zip: "17101" },
+
+  // Bucks county
+  { slug: "langhorne-19047", city: "Langhorne", state: "PA", zip: "19047" },
+  { slug: "yardley-19067", city: "Yardley", state: "PA", zip: "19067" },
+  { slug: "doylestown-18901", city: "Doylestown", state: "PA", zip: "18901" },
+  { slug: "doylestown-18902", city: "Doylestown", state: "PA", zip: "18902" },
+  { slug: "chalfont-18914", city: "Chalfont", state: "PA", zip: "18914" },
+  { slug: "furlong-18925", city: "Furlong", state: "PA", zip: "18925" },
+  { slug: "jamison-18929", city: "Jamison", state: "PA", zip: "18929" },
+  { slug: "newtown-18940", city: "Newtown", state: "PA", zip: "18940" },
   { slug: "richboro-18954", city: "Richboro", state: "PA", zip: "18954" },
   { slug: "southampton-18966", city: "Southampton", state: "PA", zip: "18966" },
-  { slug: "holmes-19047", city: "Holmes", state: "PA", zip: "19047" },
-  { slug: "newtown-18940", city: "Newtown", state: "PA", zip: "18940" },
-  { slug: "ardmore-19004", city: "Ardmore", state: "PA", zip: "19004" },
-  { slug: "bala-cynwyd-19035", city: "Bala Cynwyd", state: "PA", zip: "19035" },
-  { slug: "yardley-19067", city: "Yardley", state: "PA", zip: "19067" },
-  { slug: "huntingdon-valley-18929", city: "Huntingdon Valley", state: "PA", zip: "18929" },
-  { slug: "bryn-athyn-19072", city: "Bryn Athyn", state: "PA", zip: "19072" },
-  { slug: "jamison-18929", city: "Jamison", state: "PA", zip: "18929" },
-  { slug: "doylestown-18901", city: "Doylestown", state: "PA", zip: "18901" },
   { slug: "ambler-19002", city: "Ambler", state: "PA", zip: "19002" },
-  { slug: "doylestown-18902", city: "Doylestown", state: "PA", zip: "18902" },
-  { slug: "wynnewood-19041", city: "Wynnewood", state: "PA", zip: "19041" },
-  { slug: "chalfont-18914", city: "Chalfont", state: "PA", zip: "18914" },
+
+  // Main Line и окрестности
+  { slug: "bala-cynwyd-19004", city: "Bala Cynwyd", state: "PA", zip: "19004" },
+  { slug: "haverford-19041", city: "Haverford", state: "PA", zip: "19041" },
+  { slug: "merion-station-19066", city: "Merion Station", state: "PA", zip: "19066" },
+  { slug: "narberth-19072", city: "Narberth", state: "PA", zip: "19072" },
+  { slug: "villanova-19085", city: "Villanova", state: "PA", zip: "19085" },
+  { slug: "wayne-19087", city: "Wayne", state: "PA", zip: "19087" },
+  { slug: "wynnewood-19096", city: "Wynnewood", state: "PA", zip: "19096" },
+  { slug: "blue-bell-19422", city: "Blue Bell", state: "PA", zip: "19422" },
 ];
 
 export function getLocationBySlug(slug: string) {

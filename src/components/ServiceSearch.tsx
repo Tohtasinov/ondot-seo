@@ -14,7 +14,7 @@ export default function ServiceSearch({ items }: { items: Item[] }) {
     washer: "/images/washer-repair.jpg",
     refrigerator: "/images/fridge-repair.jpg",
     oven: "/images/oven-repair.jpg",
-    stove: "/images/stove.jpg",
+    stove: "/images/appliance-repair-team-stockcake.jpg",
   };
 
   const filtered = useMemo(() => {
