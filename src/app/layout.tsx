@@ -5,6 +5,7 @@ import Button from "@/components/ui/Button";
 import Link from "next/link";
 import { jsonLdOrganization, jsonLdWebsite } from "@/lib/seo/schema";
 import { BASE_URL } from "@/lib/seo/meta";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ondotappliance.com"),
@@ -27,26 +28,42 @@ export const metadata: Metadata = {
   },
 };
 
-
- 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id=GTM-PW7JL94B'+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-PW7JL94B');
-            `
-          }}
+      <head>
+        {/* Google Tag Manager */}
+        <Script id="gtm" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id=GTM-PW7JL94B'+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-PW7JL94B');
+          `}
+        </Script>
+
+        {/* Google Ads tag */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17733793350"
+          strategy="afterInteractive"
         />
+
+        <Script id="google-ads" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17733793350');
+          `}
+        </Script>
       </head>
+
       <body className="min-h-dvh bg-[var(--bg)] text-[var(--fg)] antialiased">
-          <noscript>
+        
+        {/* GTM noscript */}
+        <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-PW7JL94B"
             height="0"
@@ -54,6 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+
         <header className="sticky top-0 z-50 border-b border-black/10 bg-white/80 backdrop-blur">
           <Container className="flex h-14 items-center justify-between">
             <a href="/" className="font-semibold tracking-tight">
@@ -73,10 +91,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <main>{children}</main>
 
+        {/* Structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite(BASE_URL)) }}
         />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrganization(BASE_URL)) }}
