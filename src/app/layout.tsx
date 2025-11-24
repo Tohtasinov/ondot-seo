@@ -43,25 +43,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
 
-        {/* Google Ads tag */}
+        {/* Единственный gtag для GA4 + Google Ads */}
         <Script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17733793350"
+          src="https://www.googletagmanager.com/gtag/js?id=G-3B6C2NCZ4E"
           strategy="afterInteractive"
         />
 
-        <Script id="google-ads" strategy="afterInteractive">
+        <Script id="gtag-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
+
+            // GA4
+            gtag('config', 'G-3B6C2NCZ4E');
+
+            // Google Ads
             gtag('config', 'AW-17733793350');
           `}
         </Script>
       </head>
 
       <body className="min-h-dvh bg-[var(--bg)] text-[var(--fg)] antialiased">
-        
         {/* GTM noscript */}
         <noscript>
           <iframe
